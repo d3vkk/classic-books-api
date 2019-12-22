@@ -52,16 +52,6 @@ func main() {
 		fmt.Println("problem:", err)
 	}
 
-	// fmt.Println(books.Books[0].Author)
-
-	// for i := 0; i < len(books.Books); i++ {
-	// 	fmt.Println("ID: " + strconv.Itoa(books.Books[i].ID))
-	// 	fmt.Println("Isbn: " + strconv.Itoa(books.Books[i].Isbn))
-	// 	fmt.Println("Title: " + books.Books[i].Title)
-	// 	fmt.Println("Author: " + books.Books[i].Author)
-	// 	fmt.Println("Synopsis: " + books.Books[i].Synopsis)
-	// }
-
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/books", getBooks).Methods("GET")
