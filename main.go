@@ -9,7 +9,7 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"bitbucket.org/d3vkk/classicbooks-api/devt/jsontesting"
+	"bitbucket.org/d3vkk/classicbooks-api/devt/jsondata"
 )
 
 // Books struct
@@ -45,7 +45,7 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	var data = jsontesting.BookData()
+	var data = jsondata.BookData()
 
 	err := json.Unmarshal([]byte(data), &books)
 	if err != nil {
