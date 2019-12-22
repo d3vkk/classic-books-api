@@ -25,8 +25,14 @@ type Book struct {
 	Synopsis string `json:"synopsis"`
 }
 
+var books Books
+
+func getBooks(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(books)
+}
+
 func main() {
-	var books Books
 	var data = jsontesting.BookData()
 
 	err := json.Unmarshal([]byte(data), &books)
@@ -45,5 +51,7 @@ func main() {
 	// }
 
 	router := mux.NewRouter()
+
+	router.HandleFunc("/api/books", getBooks).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
