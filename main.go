@@ -3,9 +3,12 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"strconv"
+	"log"
+	"net/http"
 
-	"./jsontesting"
+	"github.com/gorilla/mux"
+
+	"bitbucket.org/d3vkk/classicbooks-api/devt/jsontesting"
 )
 
 // Books struct
@@ -31,14 +34,16 @@ func main() {
 		fmt.Println("problem:", err)
 	}
 
-	fmt.Println(books.Books[0].Author)
+	// fmt.Println(books.Books[0].Author)
 
-	for i := 0; i < len(books.Books); i++ {
-		fmt.Println("ID: " + strconv.Itoa(books.Books[i].ID))
-		fmt.Println("Isbn: " + strconv.Itoa(books.Books[i].Isbn))
-		fmt.Println("Title: " + books.Books[i].Title)
-		fmt.Println("Author: " + books.Books[i].Author)
-		fmt.Println("Synopsis: " + books.Books[i].Synopsis)
-	}
+	// for i := 0; i < len(books.Books); i++ {
+	// 	fmt.Println("ID: " + strconv.Itoa(books.Books[i].ID))
+	// 	fmt.Println("Isbn: " + strconv.Itoa(books.Books[i].Isbn))
+	// 	fmt.Println("Title: " + books.Books[i].Title)
+	// 	fmt.Println("Author: " + books.Books[i].Author)
+	// 	fmt.Println("Synopsis: " + books.Books[i].Synopsis)
+	// }
 
+	router := mux.NewRouter()
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
