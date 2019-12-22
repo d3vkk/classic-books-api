@@ -12,6 +12,8 @@ import (
 	"bitbucket.org/d3vkk/classicbooks-api/devt/jsondata"
 )
 
+//The structs or classes below map the JSON data
+
 // Books struct
 type Books struct {
 	Books []Book `json:"classicbooks"`
@@ -26,6 +28,7 @@ type Book struct {
 	Synopsis string `json:"synopsis"`
 }
 
+// Note that: books.Books = []Book
 var books Books
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
@@ -45,9 +48,12 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	//Load Book Data
 	var data = jsondata.BookData()
 
+	//Parse JSON
 	err := json.Unmarshal([]byte(data), &books)
+	//Handle any errors
 	if err != nil {
 		fmt.Println("problem:", err)
 	}
