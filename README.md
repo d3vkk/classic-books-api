@@ -66,7 +66,7 @@ To contribute, [use this guide](https://github.com/d3vkk/open-source/blob/master
 
 Star this repo for future reference
 
-[Open in browser-based Visual Studio Code](https://vscode.dev//github/d3vkk/classic-books-api)
+[Open in browser-based Visual Studio Code](https://vscode.dev/github/d3vkk/classic-books-api)
 
 Fork or clone this repo
 ```
